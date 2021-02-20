@@ -23,3 +23,6 @@ git diff HEAD filename
 # 提交修改
 git add filename
 git commit -m ""
+# commit id 
+# HEAD 最新的提交
+
