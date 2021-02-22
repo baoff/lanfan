@@ -53,7 +53,7 @@ git push -u origin master
 
 克隆远程仓库
 git clone https://github.com/baoff/lanfan.git  (https 协议，慢，需要输入密码)
-git clone git@github.com:baoff/lanfan.git  ssh 协议
+git clone git@github.com:baoff/lanfan.git  ssh 协议 快
 
 
 
