@@ -46,6 +46,14 @@ git 和GitHub传输是通过SSH加密的
 git 生成秘钥对
 ssh-keygen -t rsa -C "email" 生成.ssh 目录(id_rsa 私钥,id_rsa.pub 公钥)
 添加id_rsa.pub文件内容到github 添加ssh keys 
+本地仓库和远程仓库关联
+git remote add origin(远程仓库名称) https://github.com/baoff/lanfan.git
+把本地推送到远程
+git push -u origin master
+
+克隆远程仓库
+git clone https://github.com/baoff/lanfan.git  (https 协议，慢，需要输入密码)
+git clone git@github.com:baoff/lanfan.git  ssh 协议
 
 
 
