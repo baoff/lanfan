@@ -55,6 +55,14 @@ git push -u origin master
 git clone https://github.com/baoff/lanfan.git  (https 协议，慢，需要输入密码)
 git clone git@github.com:baoff/lanfan.git  ssh 协议 快
 
-
-
+分支
+git checkout -b dev -- 创建dev 分支并切换到dev
+git branch dev --创建分支dev
+git checkout dev -- 切换到dev 新版本用git switch -c dev
+# 查看分支列表
+git branch
+# 合并分支
+git merge dev -- 合并dev分支到当前分支
+# 删除分支
+git branch -d dev
 
