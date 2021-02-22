@@ -35,8 +35,18 @@ git reset commit id 到指定版本
 cat filename
 #查看 git 操作命令记录
 git reflog 
--------------------------
-#撤销修改,回到最近依次add 或commit 状态
+#撤销工作区修改,回到最近依次add 或commit 状态
 git checkout -- filename 
-# 撤销暂存区修改
+# 撤销暂存区修改,撤销add 命令
 git reset HEAD filename
+
+-------------------------------------
+GitHub
+git 和GitHub传输是通过SSH加密的
+git 生成秘钥对
+ssh-keygen -t rsa -C "email" 生成.ssh 目录(id_rsa 私钥,id_rsa.pub 公钥)
+添加id_rsa.pub文件内容到github 添加ssh keys 
+
+
+
+
