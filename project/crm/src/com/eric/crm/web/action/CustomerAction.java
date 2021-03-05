@@ -28,7 +28,4 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	public String saveUI(){
 		return "saveUI";
 	}
-	
-	
-
 }

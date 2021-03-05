@@ -1,5 +1,5 @@
 CREATE TABLE `base_dict` (
-	`dict_id` varchar(32) NOT NULL COMMENT '数据字典id(主键)',
+	`dict_id` bigint(32) NOT NULL COMMENT '数据字典id(主键)',
 	`dict_type_code` varchar(10) NOT NULL COMMENT '数据字典类别代码',
 	`dict_type_name` varchar(64) NOT NULL COMMENT '数据字典类别名称',
 	`dict_item_name` varchar(64) NOT NULL COMMENT '数据字典项目名称',

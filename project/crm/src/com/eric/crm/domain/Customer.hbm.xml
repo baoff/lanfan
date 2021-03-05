@@ -14,11 +14,14 @@
 		
 		<!-- 建立类中的普通属性和表中的字段相对应 -->
 		<property name="custName" column="cust_name" />
-		<property name="custSource" column="cust_source" />
+<!-- 		<property name="custSource" column="cust_source" />
 		<property name="custIndustry" column="cust_industry" />
-		<property name="custLevel" column="cust_level" />
+		<property name="custLevel" column="cust_level" /> -->
+		
 		<property name="custPhone" column="cust_phone" />
 		<property name="custMobile" column="cust_mobile" />
-		
+		<many-to-one name="baseDictSource" class="com.eric.crm.domain.BaseDict" column="cust_source"></many-to-one>
+		<many-to-one name="baseDictIndustry" class="com.eric.crm.domain.BaseDict" column="cust_industry"></many-to-one>
+		<many-to-one name="baseDictLevel" class="com.eric.crm.domain.BaseDict" column="cust_level"></many-to-one>
 	</class>
 </hibernate-mapping>

@@ -8,11 +8,14 @@ package com.eric.crm.domain;
 public class Customer {
 	private Long custId;
 	private String custName;
-	private String custSource;
-	private String custIndustry;
-	private String custLevel;
+//	private String custSource;
+//	private String custIndustry;
+//	private String custLevel;
 	private String custPhone;
 	private String custMobile;
+	private BaseDict baseDictSource;
+	private BaseDict baseDictIndustry;
+	private BaseDict baseDictLevel;
 	public Long getCustId() {
 		return custId;
 	}
@@ -25,23 +28,23 @@ public class Customer {
 	public void setCustName(String custName) {
 		this.custName = custName;
 	}
-	public String getCustSource() {
-		return custSource;
+	public BaseDict getBaseDictSource() {
+		return baseDictSource;
 	}
-	public void setCustSource(String custSource) {
-		this.custSource = custSource;
+	public void setBaseDictSource(BaseDict baseDictSource) {
+		this.baseDictSource = baseDictSource;
 	}
-	public String getCustIndustry() {
-		return custIndustry;
+	public BaseDict getBaseDictIndustry() {
+		return baseDictIndustry;
 	}
-	public void setCustIndustry(String custIndustry) {
-		this.custIndustry = custIndustry;
+	public void setBaseDictIndustry(BaseDict baseDictIndustry) {
+		this.baseDictIndustry = baseDictIndustry;
 	}
-	public String getCustLevel() {
-		return custLevel;
+	public BaseDict getBaseDictLevel() {
+		return baseDictLevel;
 	}
-	public void setCustLevel(String custLevel) {
-		this.custLevel = custLevel;
+	public void setBaseDictLevel(BaseDict baseDictLevel) {
+		this.baseDictLevel = baseDictLevel;
 	}
 	public String getCustPhone() {
 		return custPhone;
