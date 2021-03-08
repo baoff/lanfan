@@ -14,38 +14,38 @@
 	$(function() {//页面一加载，函数就会执行
 		//页面一加载，我就应该异步去查询字典数据
 		//加载客户的来源
-		$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action", {"dict_type_code":"002"}, function(data) {
+		$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action", {"dictTypeCode":"002"}, function(data) {
 			//遍历JSON的数据
 			$(data).each(function(i, n) {
 				/*
 				 * i：这个参数表示循环到第几个了
 				 * n：这个参数表示循环出来的具体的JSON对象
 				 */
-				 $("#cust_source").append("<option value='" + n.dict_id + "'>" + n.dict_item_name + "</option>");
+				 $("#cust_source").append("<option value='" + n.dictId + "'>" + n.dictItemName + "</option>");
 			});
 		}, "json");
 	
 		//加载客户的级别
-		$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action", {"dict_type_code":"006"}, function(data) {
+		$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action", {"dictTypeCode":"006"}, function(data) {
 			//遍历JSON的数据
 			$(data).each(function(i, n) {
 				/*
 				 * i：这个参数表示循环到第几个了
 				 * n：这个参数表示循环出来的具体的JSON对象
 				 */
-				 $("#cust_level").append("<option value='" + n.dict_id + "'>" + n.dict_item_name + "</option>");
+				 $("#cust_level").append("<option value='" + n.dictId + "'>" + n.dictItemName + "</option>");
 			});
 		}, "json");
 		
 		//加载客户所属的行业
-		$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action", {"dict_type_code":"001"}, function(data) {
+		$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action", {"dictTypeCode":"001"}, function(data) {
 			//遍历JSON的数据
 			$(data).each(function(i, n) {
 				/*
 				 * i：这个参数表示循环到第几个了
 				 * n：这个参数表示循环出来的具体的JSON对象
 				 */
-				 $("#cust_industry").append("<option value='" + n.dict_id + "'>" + n.dict_item_name + "</option>");
+				 $("#cust_industry").append("<option value='" + n.dictId + "'>" + n.dictItemName + "</option>");
 			});
 		}, "json");
 	});
@@ -97,7 +97,7 @@
 								</td>
 								<td>客户级别 ：</td>
 								<td>
-									<select id="cust_level" name="baseDictLevel.dict_id">
+									<select id="cust_level" name="baseDictLevel.dictId">
 										<option value="">---请选择---</option>
 									</select>
 								</td>
@@ -107,13 +107,13 @@
 								
 								<td>信息来源 ：</td>
 								<td>
-									<select id="cust_source" name="baseDictSource.dict_id">
+									<select id="cust_source" name="baseDictSource.dictId">
 										<option value="">---请选择---</option>
 									</select>
 								</td>
 								<td>所属行业 ：</td>
 								<td>
-									<select id="cust_industry" name="baseDictIndustry.dict_id">
+									<select id="cust_industry" name="baseDictIndustry.dictId">
 										<option value="">---请选择---</option>
 									</select>
 								</td>
@@ -125,12 +125,12 @@
 								<td>固定电话 ：</td>
 								<td>
 								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_phone">
+														style="WIDTH: 180px" maxLength=50 name="custPhone">
 								</td>
 								<td>移动电话 ：</td>
 								<td>
 								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_mobile">
+														style="WIDTH: 180px" maxLength=50 name="custMobile">
 								</td>
 							</TR>
 							

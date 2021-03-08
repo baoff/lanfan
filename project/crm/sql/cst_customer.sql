@@ -8,3 +8,18 @@ CREATE TABLE `cst_customer` (
 	`cust_mobile` varchar(16) DEFAULT NULL COMMENT '移动电话',
 	PRIMARY KEY (`cust_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `cst_customer` (
+  `cust_id` bigint(32) NOT NULL AUTO_INCREMENT COMMENT '客户编号(主键)',
+  `cust_name` varchar(32) NOT NULL COMMENT '客户名称(公司名称)',
+  cust_source bigint(32) not null,
+	cust_industry bigint(32) not null,
+	cust_level bigint(32) not null,
+  `cust_phone` varchar(64) DEFAULT NULL COMMENT '固定电话',
+  `cust_mobile` varchar(16) DEFAULT NULL COMMENT '移动电话',
+  PRIMARY KEY (`cust_id`),
+	FOREIGN key(cust_source) REFERENCES base_dict(dict_id),
+	FOREIGN key(cust_industry) REFERENCES base_dict(dict_id),
+	FOREIGN key(cust_level) REFERENCES base_dict(dict_id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

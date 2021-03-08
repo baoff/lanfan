@@ -6,9 +6,14 @@ import com.eric.crm.dao.BaseDictDao;
 import com.eric.crm.domain.BaseDict;
 import com.eric.crm.service.BaseDictService;
 
+
 public class BaseDictServiceImpl implements BaseDictService{
 	
 	private BaseDictDao baseDictDao;
+
+	public void setBaseDictDao(BaseDictDao baseDictDao) {
+		this.baseDictDao = baseDictDao;
+	}
 
 	@Override
 	public List<BaseDict> findByTypeCode(String dictTypeCode) {

@@ -12,9 +12,13 @@
 			<result name="login">/login.jsp</result>
 			<result name="success" type="redirect">/index.jsp</result>
 		</action>
-		
-		<action name="customer_*" class="customerAction" method="{*}">
+		<!-- 客户管理 -->
+		<action name="customer_*" class="customerAction" method="{1}">
 			<result name="saveUI">/jsp/customer/add.jsp</result>
+		</action>
+		
+		<action name="baseDict_*" class="baseDictAction" method="{1}">
+			
 		</action>
 	</package>
 </struts>
