@@ -33,7 +33,7 @@
 		
 		<action name="baseDict_*" class="baseDictAction" method="{1}">
 		</action>
-		
+		<!--联系人  -->
 		<action name="linkMan_*" class="linkManAction" method="{1}">
 			<result name="findAll">/jsp/linkman/list.jsp</result>
 			<result name="saveUI">/jsp/linkman/add.jsp</result>
@@ -41,6 +41,17 @@
 			<result name="saveSuccess" type="redirectAction">linkMan_findAll.action</result>
 			<result name="deleteSuccess" type="redirectAction">linkMan_findAll.action</result>
 			<result name="updateSuccess" type="redirectAction">linkMan_findAll.action</result>
+			<result name="input">/jsp/linkman/add.jsp</result>
+		</action>
+		
+		<action name="saleVisit_*" class="saleVisitAction" method="{1}">
+			<result name="findAll">/jsp/saleVisit/list.jsp</result>
+			<result name="saveUI">/jsp/saleVisit/add.jsp</result>
+			<result name="editSuccess">/jsp/saleVisit/edit.jsp</result>
+			<result name="saveSuccess" type="redirectAction">saleVisit_findAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">saleVisit_findAll.action</result>
+			<result name="updateSuccess" type="redirectAction">saleVisit_findAll.action</result>
+			<result name="input">/jsp/saleVisit/add.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -1,5 +1,7 @@
 package com.eric.crm.service.impl;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eric.crm.dao.UserDao;
@@ -30,6 +32,12 @@ public class UserServiceImpl implements UserService{
 	public User login(User user) {
 		user.setUserPassword(MD5Utils.md5(user.getUserPassword()));
 		return userDao.login(user);
+	}
+
+
+	@Override
+	public List<User> findAll() {
+		return userDao.findAll();
 	}
 	
 }

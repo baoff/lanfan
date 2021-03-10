@@ -39,6 +39,7 @@
 				<value>com/eric/crm/domain/Customer.hbm.xml</value>
 				<value>com/eric/crm/domain/BaseDict.hbm.xml</value>
 				<value>com/eric/crm/domain/LinkMan.hbm.xml</value>
+				<value>com/eric/crm/domain/SaleVisit.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -105,6 +106,17 @@
 		<property name="linkManDao" ref="linkManDao"></property>
 	</bean>
 	<bean id="linkManDao" class="com.eric.crm.dao.impl.LinkManDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!--拜访记录管理  -->
+	<bean id="saleVisitAction" class="com.eric.crm.web.action.SaleVisitAction" scope="prototype">
+		<property name="saleVisitService" ref="saleVisitService"></property>
+	</bean>
+	<bean id="saleVisitService" class="com.eric.crm.service.impl.SaleVisitServiceImpl">
+		<property name="saleVisitDao" ref="saleVisitDao"></property>
+	</bean>
+	<bean id="saleVisitDao" class="com.eric.crm.dao.impl.SaleVisitDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 </beans>
