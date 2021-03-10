@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 
-import com.eric.crm.domain.Customer;
+import com.eric.crm.domain.LinkMan;
 
-public interface CustomerDao extends BaseDao<Customer>{
+public interface LinkManDao extends BaseDao<LinkMan>{
+	
 }

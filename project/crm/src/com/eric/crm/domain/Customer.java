@@ -1,5 +1,8 @@
 package com.eric.crm.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 客户信息
  * @author eric
@@ -16,6 +19,9 @@ public class Customer {
 	private BaseDict baseDictSource;
 	private BaseDict baseDictIndustry;
 	private BaseDict baseDictLevel;
+	private String custImage;
+	
+	private Set<LinkMan> linkMans = new HashSet<LinkMan>();
 	public Long getCustId() {
 		return custId;
 	}
@@ -58,6 +64,17 @@ public class Customer {
 	public void setCustMobile(String custMobile) {
 		this.custMobile = custMobile;
 	}
-	
+	public String getCustImage() {
+		return custImage;
+	}
+	public void setCustImage(String custImage) {
+		this.custImage = custImage;
+	}
+	public Set<LinkMan> getLinkMans() {
+		return linkMans;
+	}
+	public void setLinkMans(Set<LinkMan> linkMans) {
+		this.linkMans = linkMans;
+	}
 	
 }

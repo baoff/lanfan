@@ -10,7 +10,50 @@
 <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
 <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
 	rel=stylesheet>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+$(function() {//页面一加载，函数就会执行
+	//页面一加载，我就应该异步去查询字典数据
+	//加载客户的来源
+	$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action", {"dictTypeCode":"002"}, function(data) {
+		//遍历JSON的数据
+		$(data).each(function(i, n) {
+			/*
+			 * i：这个参数表示循环到第几个了
+			 * n：这个参数表示循环出来的具体的JSON对象
+			 */
+			 $("#custSource").append("<option value='" + n.dictId + "'>" + n.dictItemName + "</option>");
+		});
+		$("#custSource option[value = '${model.baseDictSource.dictId}']").prop("selected","selected");
+	}, "json");
+
+	//加载客户的级别
+	$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action", {"dictTypeCode":"006"}, function(data) {
+		//遍历JSON的数据
+		$(data).each(function(i, n) {
+			/*
+			 * i：这个参数表示循环到第几个了
+			 * n：这个参数表示循环出来的具体的JSON对象
+			 */
+			 $("#custLevel").append("<option value='" + n.dictId + "'>" + n.dictItemName + "</option>");
+		});
+		$("#custLevel option[value = '${model.baseDictLevel.dictId}']").prop("selected","selected");
+	}, "json");
+	
+	//加载客户所属的行业
+	$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action", {"dictTypeCode":"001"}, function(data) {
+		//遍历JSON的数据
+		$(data).each(function(i, n) {
+			/*
+			 * i：这个参数表示循环到第几个了
+			 * n：这个参数表示循环出来的具体的JSON对象
+			 */
+			 $("#custIndustry").append("<option value='" + n.dictId + "'>" + n.dictItemName + "</option>");
+		});
+		$("#custIndustry option[value = '${model.baseDictIndustry.dictId}']").prop("selected","selected");
+	}, "json");
+});
+</script>
 <SCRIPT language=javascript>
 	function to_page(page){
 		if(page){
@@ -64,8 +107,26 @@
 												<TR>
 													<TD>客户名称：</TD>
 													<TD><INPUT class=textbox id=sChannel2
-														style="WIDTH: 80px" maxLength=50 name="custName"></TD>
-													
+														style="WIDTH: 80px" maxLength=50 name="custName" value="<s:property value="custName"/>">
+													</TD>
+													<TD>客户来源：</TD>
+													<TD>
+														<select id="custSource" name="baseDictSource.dictId">
+															<option value="">---请选择---</option>
+														</select>
+													</TD>
+													<TD>客户级别：</TD>
+													<TD>
+														<select id="custLevel" name="baseDictLevel.dictId">
+															<option value="">---请选择---</option>
+														</select>
+													</TD>
+													<TD>客户所属行业：</TD>
+													<TD>
+														<select id="custIndustry" name="baseDictIndustry.dictId">
+															<option value="">---请选择---</option>
+														</select>
+													</TD>
 													<TD><INPUT class=button id=sButton2 type=submit
 														value=" 筛选 " name=sButton2></TD>
 												</TR>
@@ -94,16 +155,16 @@
 												<s:iterator value="list">
 													<TR
 														style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-														<TD><s:property value="cust_name" /></TD>
-														<TD><s:property value="baseDictLevel.dict_item_name" /></TD>
-														<TD><s:property value="baseDictSource.dict_item_name" /></TD>
-														<TD><s:property value="baseDictIndustry.dict_item_name" /></TD>
-														<TD><s:property value="cust_phone" /></TD>
-														<TD><s:property value="cust_mobile" /></TD>
+														<TD><s:property value="custName" /></TD>
+														<TD><s:property value="baseDictLevel.dictItemName" /></TD>
+														<TD><s:property value="baseDictSource.dictItemName" /></TD>
+														<TD><s:property value="baseDictIndustry.dictItemName" /></TD>
+														<TD><s:property value="custPhone" /></TD>
+														<TD><s:property value="custMobile" /></TD>
 														<TD>
-														<a href="${pageContext.request.contextPath }/customer_edit.action?cust_id=<s:property value="cust_id" />">修改</a>
+														<a href="${pageContext.request.contextPath }/customer_edit.action?custId=<s:property value="custId" />">修改</a>
 														&nbsp;&nbsp;
-														<a href="${pageContext.request.contextPath }/customer_delete.action?cust_id=<s:property value="cust_id" />">删除</a>
+														<a href="${pageContext.request.contextPath }/customer_delete.action?custId=<s:property value="custId" />">删除</a>
 														</TD>
 													</TR>
 												</s:iterator>

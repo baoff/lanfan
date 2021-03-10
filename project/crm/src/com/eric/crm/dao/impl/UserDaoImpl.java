@@ -12,12 +12,7 @@ import com.eric.crm.domain.User;
  * @author eric
  *
  */
-public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
-
-	@Override
-	public void save(User user) {
-		this.getHibernateTemplate().save(user);
-	}
+public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
 
 	@Override
 	public User login(User user) {

@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,12 +13,10 @@
 
 <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
 </HEAD>
+<s:actionerror/>
 <BODY>
-	<FORM id=form1 name=form1
-		action="${pageContext.request.contextPath }/linkmanServlet?method=addsubmit"
-		method=post>
-		
-
+	<s:form id="form1" name="form1" action="linkMan_save.action" method="post" theme="simple">
+	
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
 				<TR>
@@ -47,30 +46,49 @@
 						<TABLE cellSpacing=0 cellPadding=5  border=0>
 							<tr>
 								<td>所属客户：</td>
-								<td colspan="3"><input type="text" name="custId" style="WIDTH: 180px"/></td>
+								<td colspan="3">
+									<s:select list="list" name="customer.custId" headerKey="" headerValue="---请选择---" listKey="custId" listValue="custName">
+									</s:select>
+								</td>
 							</tr>
 							<TR>
 								<td>联系人名称：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="lkmName">
+									<s:textfield cssClass="textbox" id="sChannel2" cssStyle="WIDTH: 180px" maxLength="50" name="lkmName"></s:textfield>
 								</td>
 								<td>联系人性别：</td>
 								<td>
-								<input type="radio" value="1" name="lkmGender">男
-								<input type="radio" value="2" name="lkmGender">女
+									<s:radio list="#{'1':'男','2':'女' }" name="lkmGender"/>
 								</td>
 							</TR>
 							<TR>
 								<td>联系人办公电话 ：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="lkmPhone">
+									<s:textfield cssClass="textbox" id="sChannel2" cssStyle="WIDTH: 180px" maxLength="50" name="lkmPhone"></s:textfield>
 								</td>
 								<td>联系人手机 ：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="lkmMobile">
+									<s:textfield cssClass="textbox" id="sChannel2" cssStyle="WIDTH: 180px" maxLength="50" name="lkmMobile"></s:textfield>
+								</td>
+							</TR>
+							<TR>
+								<td>联系人邮箱 ：</td>
+								<td>
+									<s:textfield cssClass="textbox" id="sChannel2" cssStyle="WIDTH: 180px" maxLength="50" name="lkmEmail"></s:textfield>
+								</td>
+								<td>联系人QQ ：</td>
+								<td>
+									<s:textfield cssClass="textbox" id="sChannel2" cssStyle="WIDTH: 180px" maxLength="50" name="lkmQQ"></s:textfield>
+								</td>
+							</TR>
+							<TR>
+								<td>联系人职位 ：</td>
+								<td>
+									<s:textfield cssClass="textbox" id="sChannel2" cssStyle="WIDTH: 180px" maxLength="50" name="lkmPosition"></s:textfield>
+								</td>
+								<td>联系人备注 ：</td>
+								<td>
+									<s:textfield cssClass="textbox" id="sChannel2" cssStyle="WIDTH: 180px" maxLength="50" name="lkmMemo"></s:textfield>
 								</td>
 							</TR>
 							<tr>
@@ -100,6 +118,6 @@
 				</TR>
 			</TBODY>
 		</TABLE>
-	</FORM>
+	</s:form>
 </BODY>
 </HTML>

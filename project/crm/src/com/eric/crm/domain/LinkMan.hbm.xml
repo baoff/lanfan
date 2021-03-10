@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<!-- 建立类与表的映射 -->
+	<class name="com.eric.crm.domain.LinkMan" table="cst_linkman">
+		<!-- 建立类中的属性与表中的主键相对应 -->
+		<id name="lkmId" column="lkm_id">
+			<!-- 主键的生成策略，现在使用的是本地生成策略 -->
+			<generator class="native" />
+		</id>
+		
+		<!-- 建立类中的普通属性和表中的字段相对应 -->
+		<property name="lkmName" column="lkm_name" />
+		<property name="lkmGender" column="lkm_gender" />
+		<property name="lkmPhone" column="lkm_phone" />
+		<property name="lkmMobile" column="lkm_mobile" />
+		<property name="lkmEmail" column="lkm_email" />
+		<property name="lkmQQ" column="lkm_qq" />
+		<property name="lkmPosition" column="lkm_position" />
+		<property name="lkmMemo" column="lkm_memo" />
+		
+		<!-- 配置联系人与客户的多对一的映射 -->
+		<many-to-one name="customer" class="com.eric.crm.domain.Customer" column="lkm_cust_id"></many-to-one>
+	</class>
+</hibernate-mapping>

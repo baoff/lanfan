@@ -23,5 +23,11 @@
 		<many-to-one name="baseDictSource" class="com.eric.crm.domain.BaseDict" column="cust_source"></many-to-one>
 		<many-to-one name="baseDictIndustry" class="com.eric.crm.domain.BaseDict" column="cust_industry"></many-to-one>
 		<many-to-one name="baseDictLevel" class="com.eric.crm.domain.BaseDict" column="cust_level"></many-to-one>
+		<property name="custImage" column="cust_image"/>
+		
+		<set name="linkMans" cascade="delete" inverse="true">
+			<key column="lkm_cust_id"></key>
+			<one-to-many class="com.eric.crm.domain.LinkMan"/>
+		</set>
 	</class>
 </hibernate-mapping>

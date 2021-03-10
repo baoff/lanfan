@@ -18,6 +18,7 @@ CREATE TABLE `cst_customer` (
 	cust_level bigint(32) not null,
   `cust_phone` varchar(64) DEFAULT NULL COMMENT '固定电话',
   `cust_mobile` varchar(16) DEFAULT NULL COMMENT '移动电话',
+  `cust_image` varchar(255) DEFAULT NULL COMMENT '移动电话'
   PRIMARY KEY (`cust_id`),
 	FOREIGN key(cust_source) REFERENCES base_dict(dict_id),
 	FOREIGN key(cust_industry) REFERENCES base_dict(dict_id),
